@@ -10,7 +10,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="CSS/Estilos2.css" rel="stylesheet">
+        <link href="CSS/Estilos.css" rel="stylesheet">
         <title>JSP Page</title>
     </head>
     <body>
