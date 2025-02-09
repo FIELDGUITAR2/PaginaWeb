@@ -5,6 +5,9 @@
 package Modelo;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.sql.ResultSet;
+import java.sql.Statement;
 
 /**
  *
@@ -14,6 +17,8 @@ public class Crud_PC {
     
     Conexion con;
     String instruccion;
+    
+    ArrayList<Persona> Clientes;
     
     public void AniadirPersona(String Nombre, String E_mail, String Telefono, int Codigo)
     {
@@ -45,8 +50,36 @@ public class Crud_PC {
         }
     }
     
-    public void MostrarPersona()
+    public void MostrarPersonas()
     {
+        String Nombre;
+        String E_mail;
+        String Telefono;
         
+        Clientes = new ArrayList<>();
+        Persona cliente;
+        
+        try {
+            con = new Conexion();
+            con.stm = con.getConex().prepareStatement(instruccion);
+            Statement senten = con.getConex().createStatement();
+            try (ResultSet resultado = senten.executeQuery(instruccion)) {
+                con.stm.execute();
+                while(resultado.next())
+                {
+                    int Codigo = Integer.parseInt(resultado.getString("Codigo"));
+                    Nombre = resultado.getString("Nombre");
+                    E_mail = resultado.getString("E_mail");
+                    Telefono = resultado.getString("Telefono");
+                    
+                    cliente = new Persona(Nombre, E_mail, Telefono, Codigo);
+                    
+                    Clientes.add(cliente);
+                }
+            }
+            con.getConex().close();
+        } catch (NumberFormatException | SQLException e) {
+            System.out.println("Error al capturar clientes: "+e);
+        }
     }
 }
