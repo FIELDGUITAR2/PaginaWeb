@@ -16,8 +16,8 @@ import java.sql.PreparedStatement;
 public class Conexion {
     
     private static String driver = "com.mysql.cj.jdbc.Driver";
-    private static String bd = "bd_biblioteca"; 
-    private static String passw = "#Kaliman2"; 
+    private static String bd = "Clientes"; 
+    private static String passw = ""; 
     private static String usuario = "root";
     private static String url = "jdbc:mysql://localhost:3306/"+bd;
     

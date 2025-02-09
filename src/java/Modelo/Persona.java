@@ -10,15 +10,15 @@ package Modelo;
  */
 public class Persona {
     
-    String Nombre, Email, Telefono;
+    String Nombre, E_mail, Telefono;
     int Codigo;
 
     public Persona() {
     }
 
-    public Persona(String Nombre, String Email, String Telefono, int Codigo) {
+    public Persona(String Nombre, String E_mail, String Telefono, int Codigo) {
         this.Nombre = Nombre;
-        this.Email = Email;
+        this.E_mail = E_mail;
         this.Telefono = Telefono;
         this.Codigo = Codigo;
     }
@@ -27,12 +27,16 @@ public class Persona {
         this.Nombre = Nombre;
     }
 
-    public String getEmail() {
-        return Email;
+    public String getNombre() {
+        return Nombre;
+    }
+    
+    public String getE_mail() {
+        return E_mail;
     }
 
-    public void setEmail(String Email) {
-        this.Email = Email;
+    public void setE_mail(String E_mail) {
+        this.E_mail = E_mail;
     }
 
     public String getTelefono() {
